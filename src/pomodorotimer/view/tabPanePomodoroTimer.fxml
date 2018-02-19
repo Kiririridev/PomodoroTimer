@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+  <tabs>
+    <Tab fx:id="tabTimer" text="Timer">
+      <content>
+        <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Slider fx:id="sliderWork" blockIncrement="1.0" layoutX="21.0" layoutY="64.0" majorTickUnit="5.0" max="90.0" minorTickCount="1" prefHeight="15.0" prefWidth="255.0" showTickLabels="true" showTickMarks="true" />
+                  <TextArea fx:id="textAreaWork" layoutX="368.0" layoutY="63.0" prefHeight="38.0" prefWidth="74.0" />
+                  <TextArea fx:id="textAreaBreak" layoutX="362.0" layoutY="178.0" prefHeight="26.0" prefWidth="87.0" />
+                  <Button fx:id="buttonStartWork" layoutX="477.0" layoutY="70.0" mnemonicParsing="false" text="Start Work" />
+                  <Button fx:id="buttonStartBreak" layoutX="476.0" layoutY="185.0" mnemonicParsing="false" text="Start Break" />
+                  <Slider fx:id="sliderBreak" blockIncrement="1.0" layoutX="21.0" layoutY="178.0" majorTickUnit="5.0" max="90.0" minorTickCount="1" prefHeight="15.0" prefWidth="255.0" showTickLabels="true" showTickMarks="true" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="tabStatistics" text="Statistics">
+      <content>
+        <AnchorPane fx:id="anchorPaneStatistics" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BarChart fx:id="chartStatistics" layoutX="3.0" layoutY="3.0" prefHeight="258.0" prefWidth="594.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="tabSettings" text="Settings">
+        <content>
+          <AnchorPane fx:id="anchorPaneSettings" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ChoiceBox fx:id="choiceBoxSettings" layoutX="41.0" layoutY="50.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="tabAbout" text="About">
+        <content>
+          <AnchorPane fx:id="achorPaneAbout" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="textAreaAbout" layoutX="36.0" layoutY="32.0" prefHeight="200.0" prefWidth="334.0" />
+                  <ImageView fx:id="imageViewAbout" fitHeight="150.0" fitWidth="184.0" layoutX="395.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
