@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -19,12 +20,14 @@
       <content>
         <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Slider fx:id="sliderWork" blockIncrement="5.0" layoutX="21.0" layoutY="64.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabels" onDragDone="#actualizeLabels" onDragDropped="#actualizeLabels" onInputMethodTextChanged="#actualizeLabels" onMouseClicked="#actualizeLabels" onMouseDragReleased="#actualizeLabels" onMouseDragged="#actualizeLabels" onScroll="#actualizeLabels" prefHeight="33.0" prefWidth="287.0" showTickLabels="true" snapToTicks="true" value="25.0" />
-                  <Button fx:id="buttonStartWork" layoutX="479.0" layoutY="71.0" mnemonicParsing="false" onAction="#onActionStartWork" text="Start Work" />
-                  <Button fx:id="buttonStartBreak" layoutX="478.0" layoutY="186.0" mnemonicParsing="false" text="Start Break" />
-                  <Slider fx:id="sliderBreak" blockIncrement="1.0" layoutX="21.0" layoutY="178.0" majorTickUnit="5.0" max="90.0" minorTickCount="1" prefHeight="15.0" prefWidth="255.0" showTickLabels="true" showTickMarks="true" />
-                  <Label fx:id="labelWork" accessibleRoleDescription="sliderWork" layoutX="361.0" layoutY="68.0" prefHeight="30.0" prefWidth="100.0" />
-                  <Label fx:id="labelBreak" layoutX="361.0" layoutY="182.0" prefHeight="30.0" prefWidth="102.0" />
+                  <Slider fx:id="sliderWork" blockIncrement="5.0" layoutX="21.0" layoutY="65.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelWork" onDragDone="#actualizeLabelWork" onDragDropped="#actualizeLabelWork" onInputMethodTextChanged="#actualizeLabelWork" onMouseClicked="#actualizeLabelWork" onMouseDragReleased="#actualizeLabelWork" onMouseDragged="#actualizeLabelWork" onScroll="#actualizeLabelWork" prefHeight="33.0" prefWidth="287.0" showTickLabels="true" snapToTicks="true" value="25.0" />
+                  <Button fx:id="buttonStartWork" layoutX="406.0" layoutY="57.0" mnemonicParsing="false" onAction="#onActionStartWork" prefHeight="25.0" prefWidth="28.0" text="Start Work" textAlignment="CENTER" />
+                  <Button fx:id="buttonStartBreak" layoutX="388.0" layoutY="174.0" mnemonicParsing="false" onAction="#onActionStartBreak" text="Start Break" textAlignment="CENTER" />
+                  <Label fx:id="labelWork" accessibleRoleDescription="sliderWork" layoutX="325.0" layoutY="53.0" prefHeight="30.0" prefWidth="100.0" text="label" />
+                  <Label fx:id="labelBreak" layoutX="324.0" layoutY="171.0" prefHeight="30.0" prefWidth="102.0" text="label" />
+                  <Slider fx:id="sliderBreak" blockIncrement="5.0" layoutX="21.0" layoutY="182.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelBreak" onDragDone="#actualizeLabelBreak" onDragDropped="#actualizeLabelBreak" onInputMethodTextChanged="#actualizeLabelBreak" onMouseClicked="#actualizeLabelBreak" onMouseDragReleased="#actualizeLabelBreak" onMouseDragged="#actualizeLabelBreak" onScroll="#actualizeLabelBreak" prefHeight="33.0" prefWidth="287.0" showTickLabels="true" snapToTicks="true" value="10.0" />
+                  <ProgressIndicator fx:id="progressIndicatorWork" layoutX="538.0" layoutY="49.0" progress="0.0" />
+                  <ProgressIndicator fx:id="progressIndicatorBreak" layoutX="538.0" layoutY="167.0" progress="0.0" />
                </children></AnchorPane>
       </content>
     </Tab>
