@@ -7,6 +7,11 @@ import pomodorotimer.model.SuperTimer;
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.PomodoroTimer;
 
+/*
+Klasa WorkTimer dziedziczy po abstakcyjnej klasie SuperTimer. Jej wyniki są zbierane przez klasę StaticHolder
+
+
+*/
 public class WorkTimer extends SuperTimer
 {
     public WorkTimer(){}

@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/*
+Klasa obiektu przechowywanego przez StatisticHolder. Zapisuje date i czas pracy konkretnego dnia w minutach.
+Mocno korzyta z klasy LocalDate. 
+*/
 
 
 public class WorkDate {

@@ -23,9 +23,9 @@ public class PomodoroTimer extends Application {
     Stage primaryStage = new Stage();   //okno
     TabPane tabPane;    //głowna scena z czterema kartami
     static TabPaneController tabPaneController;    //obiekt kontrolera
-    static StatisticHolder statisticHolder;
+    static StatisticHolder statisticHolder; //obiekt zbieracza statystyk
     
-    //klasyczna metoda javafx, w której tworzymy okno, inicjujemy w nim TabPane
+    //klasyczna metoda javafx, w której tworzymy okno, wywołujemy w niej metodę inicjującą TabPane
     @Override
     public void start(Stage primaryStage) {
         

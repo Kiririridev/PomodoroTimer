@@ -6,8 +6,12 @@ import java.util.TimerTask;
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.PomodoroTimer;
 
-//konstruktor breaktimera, w atrybutach wprowadzamy czas docelowy. konstruktor wywoluje statyczna metod Pomodorotimer.getTabPaneController
-//by pobrac referencje do kontrolera i aktualizowac stan progress indicatora/
+/*
+Klasa BreakTimer dziedziczy po abstrakcyjnej klasie Supertimer. Działa tak samo jak Worktimer,
+jednak jej czas nie jest zapisywany przez StaticHolder.
+
+*/
+
 public class BreakTimer extends SuperTimer
 {
     public BreakTimer(){}
