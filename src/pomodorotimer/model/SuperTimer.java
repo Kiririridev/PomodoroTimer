@@ -1,18 +1,27 @@
 package pomodorotimer.model;
+//zmienić fixer rate!!
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import pomodorotimer.view.TabPaneController;
+import pomodorotimer.PomodoroTimer;
 
-public class SuperTimer {
+//szablon timerów
+public abstract class SuperTimer{
 
-    Timer timer;
-    TimerTask timerTask;
-    int timeGoalInSeconds;
-    int timePassedInSeconds= 0;
+    protected Timer timer;
+    protected TimerTask timerTask;
+    protected int timeGoalInSeconds;
+    protected int timePassedInSeconds= 0;
+    protected TabPaneController tabPaneController;
+    protected boolean isPaused = false;
+    
+    public SuperTimer(){}
     
     public SuperTimer(int time)
     {
+        tabPaneController = PomodoroTimer.getTabPaneController();
         this.timeGoalInSeconds = time * 60;
         timer = new Timer();
         timerTask = new TimerTask()
@@ -24,14 +33,22 @@ public class SuperTimer {
                 System.out.println("Passed: " + timePassedInSeconds + " Goal: " + timeGoalInSeconds);
                 if(timePassedInSeconds>=timeGoalInSeconds)
                 {
+                    
                     timer.cancel();
                     //miejsce na wysłanie statystyk do obiektu trzymającego statystyki
                 }
             }
         };
         
-        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+        timer.scheduleAtFixedRate(timerTask, 1000, 50);
     }
     
+    //metoda cancel i pasue są nadpisywane przez podklasy
+    public abstract void cancel();
     
+    public abstract void pause();
+    
+        
 }
+
+
