@@ -103,6 +103,7 @@ public class TabPaneController implements Initializable {
             xyChart.getData().add(new XYChart.Data<>(statistics.getWorkDate(i).getDate().toString(), statistics.getWorkDate(i).getWorkMins()));
             
         }
+        
         barChart.getData().addAll(xyChart);
 
         

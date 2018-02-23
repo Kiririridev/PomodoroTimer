@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.model.WorkTimer;
@@ -20,7 +21,7 @@ import pomodorotimer.model.StatisticHolder;
 //głowna klasa rozpoczynająca program
 public class PomodoroTimer extends Application {
     
-    Stage primaryStage = new Stage();   //okno
+
     TabPane tabPane;    //głowna scena z czterema kartami
     static TabPaneController tabPaneController;    //obiekt kontrolera
     static StatisticHolder statisticHolder; //obiekt zbieracza statystyk
@@ -29,14 +30,16 @@ public class PomodoroTimer extends Application {
     @Override
     public void start(Stage primaryStage) {
         
-        
+        //primaryStage = this.primaryStage;
         statisticHolder = new StatisticHolder();
         initTabPane();
-        Scene scene = new Scene(tabPane, 600, 300);
-        
-        
+        Scene scene = new Scene(tabPane, 600, 200);
+        //primaryStage.getStyle().UNDECORATED;
         primaryStage.setTitle("Pomodoro Timer");
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
     

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -10,24 +11,30 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pomodorotimer.view.TabPaneController">
+<TabPane fx:id="tabPane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" stylesheets="@Adonis.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pomodorotimer.view.TabPaneController">
   <tabs>
     <Tab fx:id="tabTimer" text="Timer">
       <content>
-        <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefWidth="600.0">
                <children>
-                  <Slider fx:id="sliderWork" blockIncrement="5.0" layoutX="21.0" layoutY="65.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelWork" onDragDone="#actualizeLabelWork" onDragDropped="#actualizeLabelWork" onInputMethodTextChanged="#actualizeLabelWork" onMouseClicked="#actualizeLabelWork" onMouseDragReleased="#actualizeLabelWork" onMouseDragged="#actualizeLabelWork" onScroll="#actualizeLabelWork" prefHeight="33.0" prefWidth="287.0" showTickLabels="true" snapToTicks="true" value="25.0" />
-                  <Button fx:id="buttonStartWork" layoutX="401.0" layoutY="51.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionStartWork" prefHeight="30.0" prefWidth="125.0" text="Start Work" textAlignment="JUSTIFY" />
-                  <Button fx:id="buttonStartBreak" layoutX="404.0" layoutY="174.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionStartBreak" prefHeight="30.0" prefWidth="125.0" text="Start Break" textAlignment="JUSTIFY" />
-                  <Label fx:id="labelWork" accessibleRoleDescription="sliderWork" layoutX="320.0" layoutY="54.0" prefHeight="30.0" prefWidth="76.0" text="label" />
-                  <Label fx:id="labelBreak" layoutX="320.0" layoutY="172.0" prefHeight="30.0" prefWidth="73.0" text="label" />
-                  <Slider fx:id="sliderBreak" blockIncrement="5.0" layoutX="21.0" layoutY="182.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelBreak" onDragDone="#actualizeLabelBreak" onDragDropped="#actualizeLabelBreak" onInputMethodTextChanged="#actualizeLabelBreak" onMouseClicked="#actualizeLabelBreak" onMouseDragReleased="#actualizeLabelBreak" onMouseDragged="#actualizeLabelBreak" onScroll="#actualizeLabelBreak" prefHeight="33.0" prefWidth="287.0" showTickLabels="true" snapToTicks="true" value="10.0" />
-                  <ProgressIndicator fx:id="progressIndicatorWork" layoutX="538.0" layoutY="49.0" progress="0.0" />
-                  <ProgressIndicator fx:id="progressIndicatorBreak" layoutX="538.0" layoutY="167.0" progress="0.0" />
+                  <Slider fx:id="sliderWork" blockIncrement="5.0" layoutX="10.0" layoutY="34.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelWork" onDragDone="#actualizeLabelWork" onDragDropped="#actualizeLabelWork" onInputMethodTextChanged="#actualizeLabelWork" onMouseClicked="#actualizeLabelWork" onMouseDragReleased="#actualizeLabelWork" onMouseDragged="#actualizeLabelWork" onScroll="#actualizeLabelWork" prefHeight="33.0" prefWidth="287.0" snapToTicks="true" value="25.0" />
+                  <Button fx:id="buttonStartWork" layoutX="396.0" layoutY="34.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionStartWork" prefHeight="30.0" prefWidth="125.0" text="Start Work" textAlignment="JUSTIFY" />
+                  <Button fx:id="buttonStartBreak" layoutX="396.0" layoutY="112.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionStartBreak" prefHeight="30.0" prefWidth="125.0" text="Start Break" textAlignment="JUSTIFY" />
+                  <Label fx:id="labelWork" accessibleRoleDescription="sliderWork" layoutX="303.0" layoutY="34.0" prefHeight="30.0" prefWidth="80.0" text="System">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="labelBreak" layoutX="303.0" layoutY="112.0" prefHeight="30.0" prefWidth="80.0" text="System">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Slider fx:id="sliderBreak" blockIncrement="5.0" layoutX="10.0" layoutY="112.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelBreak" onDragDone="#actualizeLabelBreak" onDragDropped="#actualizeLabelBreak" onInputMethodTextChanged="#actualizeLabelBreak" onMouseClicked="#actualizeLabelBreak" onMouseDragReleased="#actualizeLabelBreak" onMouseDragged="#actualizeLabelBreak" onScroll="#actualizeLabelBreak" prefHeight="33.0" prefWidth="287.0" snapToTicks="true" value="10.0" />
+                  <ProgressIndicator fx:id="progressIndicatorWork" layoutX="544.0" layoutY="32.0" progress="0.27" />
+                  <ProgressIndicator fx:id="progressIndicatorBreak" layoutX="544.0" layoutY="108.0" progress="0.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -35,12 +42,15 @@
       <content>
         <AnchorPane fx:id="anchorPaneStatistics" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <BarChart fx:id="barChart" layoutX="3.0" layoutY="14.0" prefHeight="244.0" prefWidth="594.0">
+                  <BarChart fx:id="barChart" layoutX="3.0" layoutY="14.0" legendVisible="false" prefHeight="165.0" prefWidth="594.0" styleClass="chart">
                     <xAxis>
-                      <CategoryAxis fx:id="categoryAxis" label="Date" side="BOTTOM" />
+                      <CategoryAxis id="chart" fx:id="categoryAxis" prefHeight="17.0" prefWidth="521.0" side="BOTTOM" styleClass="chart" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis fx:id="numberAxis" label="Time" side="LEFT" />
+                      <NumberAxis fx:id="numberAxis" minorTickVisible="false" prefHeight="136.0" prefWidth="24.0" side="TOP" styleClass="chart">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></NumberAxis>
                     </yAxis>
                   </BarChart>
                </children></AnchorPane>
@@ -59,11 +69,13 @@
         <content>
           <AnchorPane fx:id="achorPaneAbout" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea fx:id="textAreaAbout" layoutX="36.0" layoutY="32.0" prefHeight="200.0" prefWidth="334.0" />
                   <ImageView fx:id="imageViewAbout" fitHeight="150.0" fitWidth="184.0" layoutX="395.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
         </content>
       </Tab>
   </tabs>
+   <padding>
+      <Insets top="-5.0" />
+   </padding>
 </TabPane>

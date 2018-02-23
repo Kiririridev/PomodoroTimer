@@ -1,0 +1,99 @@
+.root
+{
+    -fx-background-color: #5e5656;
+
+    /*-fx-border-color: #393232;*/
+    /*-fx-text-fill: #ed8d8d;*/
+
+
+
+}
+
+.button
+{
+    -fx-background-color: #dc7c7c;
+    
+}
+
+.label
+{
+    -fx-text-fill: #ed8d8d;
+}
+
+.progressIndicator
+{
+    -fx-text-fill: #ed8d8d;
+    
+}
+
+.button:hover
+{
+    -fx-background-color: #8d6262;
+    
+}
+
+.slider
+{
+    -fx-text-fill: #000000;
+
+}
+
+.axis
+{
+
+}
+
+.label
+{
+
+    
+}
+
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #dc7c7c;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #8d6262;
+}
+
+.tab-pane .tab:hover
+{
+    -fx-background-color: #8d6262;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    /*-fx-text-fill: #828282;*/
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+/*
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
+*/
+
+.chart
+{
+    -fx-text-fill: #ed8d8d;
+    -fx-tick-label-fill: #ed8d8d;
+}
+
