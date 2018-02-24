@@ -1,2 +1,2 @@
 # PomodoroTimer
-My java pomoro timer
+My java pomodoro timer
