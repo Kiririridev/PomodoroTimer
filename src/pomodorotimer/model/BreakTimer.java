@@ -24,6 +24,7 @@ public class BreakTimer extends SuperTimer
         tabPaneController = PomodoroTimer.getTabPaneController();
         this.timeGoalInSeconds = time *60;
         this.timer = new Timer();
+        BreakPlayer player = new BreakPlayer();
         timerTask = new TimerTask()
         {
             @Override
@@ -37,7 +38,8 @@ public class BreakTimer extends SuperTimer
                 tabPaneController.actualizeBreakProgressIndicator((double)timePassedInSeconds/timeGoalInSeconds);
                 if(timePassedInSeconds>=timeGoalInSeconds)
                 {
-                    Toolkit.getDefaultToolkit().beep();
+                    //Toolkit.getDefaultToolkit().beep();
+                    player.play();
                     timer.cancel();
                     tabPaneController.resetButtons();
                     

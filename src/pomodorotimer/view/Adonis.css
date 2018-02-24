@@ -9,6 +9,13 @@
 
 }
 
+.anchorPane
+{
+    -fx-border-color: #393232;
+    -fx-border-width: 5px;
+    
+}
+
 .button
 {
     -fx-background-color: #dc7c7c;
@@ -38,6 +45,12 @@
 
 }
 
+.chart
+{
+    -fx-text-fill: #ed8d8d;
+    -fx-tick-label-fill: #ed8d8d;
+}
+
 .axis
 {
 
@@ -56,7 +69,7 @@
 
 .tab-pane
 {
-    -fx-tab-min-width:90px;
+    -fx-tab-min-width:130px;
 }
 
 .tab{
@@ -91,9 +104,4 @@
 }
 */
 
-.chart
-{
-    -fx-text-fill: #ed8d8d;
-    -fx-tick-label-fill: #ed8d8d;
-}
 

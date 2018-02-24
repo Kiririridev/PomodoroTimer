@@ -24,6 +24,7 @@ public class WorkTimer extends SuperTimer
         tabPaneController = PomodoroTimer.getTabPaneController();
         this.timeGoalInSeconds = time * 60;
         this.timer = new Timer();
+        WorkPlayer player = new WorkPlayer();
         timerTask = new TimerTask()
         {
             @Override
@@ -37,7 +38,8 @@ public class WorkTimer extends SuperTimer
                 tabPaneController.actualizeWorkProgressIndicator((double)timePassedInSeconds/timeGoalInSeconds);
                 if(timePassedInSeconds>=timeGoalInSeconds)
                 {   
-                    Toolkit.getDefaultToolkit().beep();
+                    //Toolkit.getDefaultToolkit().beep();
+                    player.play();
                     PomodoroTimer.getStatisticHolder().addTime(timePassedInSeconds);                    
                     tabPaneController.resetButtons();
                     tabPaneController.refreshChart();

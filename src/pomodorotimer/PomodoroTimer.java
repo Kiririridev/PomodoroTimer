@@ -1,5 +1,6 @@
 package pomodorotimer;
 
+import pomodorotimer.model.RingtonePlayer;
 import java.io.IOException;
 import java.net.URL;
 import javafx.application.Application;
@@ -25,6 +26,7 @@ public class PomodoroTimer extends Application {
     TabPane tabPane;    //głowna scena z czterema kartami
     static TabPaneController tabPaneController;    //obiekt kontrolera
     static StatisticHolder statisticHolder; //obiekt zbieracza statystyk
+
     
     //klasyczna metoda javafx, w której tworzymy okno, wywołujemy w niej metodę inicjującą TabPane
     @Override
@@ -41,6 +43,9 @@ public class PomodoroTimer extends Application {
         primaryStage.setResizable(false);
 
         primaryStage.show();
+        
+        
+
     }
     
     //main method
@@ -76,4 +81,5 @@ public class PomodoroTimer extends Application {
     {
         return statisticHolder;
     }
+
 }

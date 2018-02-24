@@ -19,7 +19,7 @@
   <tabs>
     <Tab fx:id="tabTimer" text="Timer">
       <content>
-        <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefWidth="600.0">
+        <AnchorPane fx:id="anchorPaneTimer" minHeight="0.0" minWidth="0.0" prefWidth="600.0" styleClass="anchorPane">
                <children>
                   <Slider fx:id="sliderWork" blockIncrement="5.0" layoutX="10.0" layoutY="34.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelWork" onDragDone="#actualizeLabelWork" onDragDropped="#actualizeLabelWork" onInputMethodTextChanged="#actualizeLabelWork" onMouseClicked="#actualizeLabelWork" onMouseDragReleased="#actualizeLabelWork" onMouseDragged="#actualizeLabelWork" onScroll="#actualizeLabelWork" prefHeight="33.0" prefWidth="287.0" snapToTicks="true" value="25.0" />
                   <Button fx:id="buttonStartWork" layoutX="396.0" layoutY="34.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onActionStartWork" prefHeight="30.0" prefWidth="125.0" text="Start Work" textAlignment="JUSTIFY" />
@@ -33,8 +33,8 @@
                         <Font size="14.0" />
                      </font></Label>
                   <Slider fx:id="sliderBreak" blockIncrement="5.0" layoutX="10.0" layoutY="112.0" majorTickUnit="5.0" max="90.0" minorTickCount="5" onDragDetected="#actualizeLabelBreak" onDragDone="#actualizeLabelBreak" onDragDropped="#actualizeLabelBreak" onInputMethodTextChanged="#actualizeLabelBreak" onMouseClicked="#actualizeLabelBreak" onMouseDragReleased="#actualizeLabelBreak" onMouseDragged="#actualizeLabelBreak" onScroll="#actualizeLabelBreak" prefHeight="33.0" prefWidth="287.0" snapToTicks="true" value="10.0" />
-                  <ProgressIndicator fx:id="progressIndicatorWork" layoutX="544.0" layoutY="32.0" progress="0.27" />
-                  <ProgressIndicator fx:id="progressIndicatorBreak" layoutX="544.0" layoutY="108.0" progress="0.0" />
+                  <ProgressIndicator fx:id="progressIndicatorWork" layoutX="544.0" layoutY="37.0" progress="0.0" />
+                  <ProgressIndicator fx:id="progressIndicatorBreak" layoutX="544.0" layoutY="116.0" progress="0.0" />
                </children></AnchorPane>
       </content>
     </Tab>
