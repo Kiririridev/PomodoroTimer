@@ -1,29 +1,22 @@
 package pomodorotimer;
 
-import pomodorotimer.model.RingtonePlayer;
+
 import java.io.IOException;
-import java.net.URL;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import pomodorotimer.view.TabPaneController;
-import pomodorotimer.model.WorkTimer;
-import pomodorotimer.model.BreakTimer;
 import pomodorotimer.model.StatisticHolder;
 
 //głowna klasa rozpoczynająca program
 public class PomodoroTimer extends Application {
     
 
-    TabPane tabPane;    //głowna scena z czterema kartami
+    private TabPane tabPane;    //głowna scena z czterema kartami
     static TabPaneController tabPaneController;    //obiekt kontrolera
     static StatisticHolder statisticHolder; //obiekt zbieracza statystyk
 

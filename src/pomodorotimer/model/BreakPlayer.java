@@ -6,14 +6,14 @@ import javafx.scene.media.MediaPlayer;
 
 public class BreakPlayer extends RingtonePlayer
 {
-    private File file;
-    private Media media;
-    private MediaPlayer player;
+
+    private final Media media;
+    private final MediaPlayer player;
     
     public BreakPlayer()
     {
-        file = new File("ringMulan.mp3");
-        media = new Media(file.toURI().toString());
+
+        media = new Media(this.getClass().getResource("ringMulan.mp3").toString());
         player = new MediaPlayer(media);
     }
     

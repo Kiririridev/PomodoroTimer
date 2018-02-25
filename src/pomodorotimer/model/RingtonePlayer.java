@@ -6,7 +6,6 @@ import javafx.scene.media.MediaPlayer;
 
 public abstract class RingtonePlayer {
 
-    private File ringone;
     private Media media;
     private MediaPlayer player;
     

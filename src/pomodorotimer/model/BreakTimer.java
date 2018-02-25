@@ -48,7 +48,7 @@ public class BreakTimer extends SuperTimer
             }
         };
         
-        timer.scheduleAtFixedRate(timerTask, 1000, 50);
+        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
     }
     
     //metoda zatrzymuje timer i powoduje resetowanie przycisków Start Work i Start Break

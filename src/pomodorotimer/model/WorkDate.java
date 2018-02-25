@@ -11,10 +11,10 @@ Mocno korzyta z klasy LocalDate.
 
 
 public class WorkDate {
-    private int year;
-    private int month;
-    private int day;
-    private int workMins;
+    private final int year;
+    private final int month;
+    private final int day;
+    private int workMins = 0;
     
     public WorkDate()
     {
@@ -37,6 +37,7 @@ public class WorkDate {
         this.day = localDate.getDayOfMonth();
         this.month = localDate.getMonthValue();
         this.year = localDate.getYear();
+        this.workMins = 0;
     }
     
     public WorkDate(int year, int month, int day, int workMins)

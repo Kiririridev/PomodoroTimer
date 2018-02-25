@@ -58,12 +58,6 @@ public class TabPaneController implements Initializable {
     @FXML
     private AnchorPane anchorPaneStatistics;
     @FXML
-    private Tab tabSettings;
-    @FXML
-    private AnchorPane anchorPaneSettings;
-    @FXML
-    private ChoiceBox<?> choiceBoxSettings;
-    @FXML
     private Tab tabAbout;
     @FXML
     private AnchorPane achorPaneAbout;
@@ -332,7 +326,7 @@ public class TabPaneController implements Initializable {
            XYChart.Series xyChart = new XYChart.Series<>();
             for(int i = 6; i>=0; i--)
             {   
-                System.out.println(statistics.getWorkDate(i).getDate().toString() +  statistics.getWorkDate(i).getWorkMins());
+                //System.out.println(statistics.getWorkDate(i).getDate().toString() +  statistics.getWorkDate(i).getWorkMins());
                 xyChart.getData().add(new XYChart.Data<>(statistics.getWorkDate(i).getDate().toString(), statistics.getWorkDate(i).getWorkMins()));
             
             }

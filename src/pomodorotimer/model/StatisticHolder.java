@@ -3,12 +3,19 @@ package pomodorotimer.model;
 import java.time.LocalDate;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
-import static java.lang.System.in;
-import java.nio.file.Paths;
+import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.net.URI;
+import java.net.URL;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
+
+
 
 /*
 Obiekt StaticHolder zbiera statystyki z WorkTimera. Nie bierze on statystyk BreakTimera. Przechowuje on tablicę klasy WorkDate,
@@ -17,43 +24,37 @@ którą wczytuje z pliku WorkDates.txt przy kosntruowaniu programu. Program nadp
 
 public class StatisticHolder
 {
-    LocalDate localDate;
-    WorkDate[] workDate = new WorkDate[8];
-    Pattern ptrn;
-    File file;
+    InputStream inputStr;
+    private WorkDate[] workDate = new WorkDate[8];
+    private File file = new File("WorkDates.txt");
+    URI uri;
+    
     /*
-    Pętla w konstruktorze wczytuje tablicę siedmiu WorkDatów z pliku. Potem sprawdza, w którymś momencie występuje data sprzed tygodnia od dzisiejszego dnia.
-    Jeśli tak, to oznacza to miejsce zmienną dif. Jeśli nie taka data nie wystąpiłą, wtedy diff pozostaje równy 7 i cała lista zepełnia się nowymi datami'
-    od dzisiaj do tygodnia wstecz. Jeżeli diff jest mniejszy od 7, wtedy przepisuje dane od pozycji 6 do diff, natomiast tworzy nowe dni od dzisiaj do diff.
+    Pętla w konstruktorze wczytuje tablicę siedmiu WorkDatów z pliku. Potem sprawdza, czy w którymś momencie występuje data sprzed tygodnia od dzisiejszego dnia.
+    Jeśli tak, to oznacza to miejsce zmienną dayMark. Jeśli nie taka data nie wystąpiłą, wtedy diff pozostaje równy 7 i cała lista zepełnia się nowymi datami'
+    od dzisiaj do tygodnia wstecz. Jeżeli dayMark jest mniejszy od 7, wtedy przepisuje dane od pozycji 6 do dayMark, natomiast tworzy nowe dni od dzisiaj do dayMark.
     */
     public StatisticHolder()
     {
+ 
         try
         {   
-            int year;
-            int month;
-            int day;
-            int time;
             file = new File("WorkDates.txt");
             Scanner in = new Scanner(file);
-            int diff = 7;
+            int dayMark = 7;
             
             for(int i = 0; i<7;i++)
             {   
-                year = in.nextInt();
-                month = in.nextInt();
-                day = in.nextInt();
-                time = in.nextInt();
-                
-                workDate[i] = new WorkDate(year,month,day,time);                
+    
+                workDate[i] = new WorkDate(in.nextInt(),in.nextInt(),in.nextInt(),in.nextInt());  
                 System.out.println(workDate[i].getDate());
                 if(workDate[0].getDate().plusDays(i).equals(LocalDate.now()))
                 {
-                    diff = i;
+                    dayMark = i;
                 }
             }
             
-            if(diff==7)
+            if(dayMark==7)
             {
                 for(int i = 0; i<7;i++)
                 {
@@ -63,38 +64,30 @@ public class StatisticHolder
             else{
                 for(int i = 6;i>=0;i--)
                 {
-                    if(i>=diff)workDate[i] = workDate[i-diff];
-                    else workDate[i] = new WorkDate(LocalDate.now().minusDays(i));
+                    if(i>=dayMark)
+                    {
+                        workDate[i] = workDate[i-dayMark];
+                    }else
+                    {
+                        workDate[i] = new WorkDate(LocalDate.now().minusDays(i));
+                    }
                 }
             }
-            
-            /*
-            for(int i = 0; i<7; i++)
-            {
-                if(workDate[i].getDate().equals(LocalDate.now().minusDays(i)));
-                else
-                {
-                    workDate[i+1] = workDate[i];
-                    workDate[i] = new WorkDate(LocalDate.now().minusDays(i));
-                }
-            }
-            */
+
             in.close();
         }
-        catch(IOException e)
+        catch(Exception e)
         {   
             System.out.println("wyjebalo exception");
             System.out.println(e.getMessage() + e.getLocalizedMessage());
+            
+            for(int i = 0; i<7; i++)
+            {
+                workDate[i] = new WorkDate(LocalDate.now().minusDays(i));
+            }
         }
     }
-    /*
-    //metoda testowa
-    public static void main(String[] args)
-    {
-        StatisticHolder statistic = new StatisticHolder();
-    }
-    */
-    
+
     
     public WorkDate getWorkDate(int i)
     {
@@ -115,18 +108,23 @@ public class StatisticHolder
     */
     public void writeFile()
     {
+        //PrintStream out = new PrintStream(this.getClass().getResourceAsStream("WorkDates.txt").toString())
+        
+        
         try
-        {
-            PrintStream out = new PrintStream(file);
-            System.setOut(out);
-            for(int i = 0; i<7; i++)
-            {
-                System.out.printf("%d %d %d %d\n", workDate[i].getDate().getYear(), workDate[i].getDate().getMonthValue(), workDate[i].getDate().getDayOfMonth(), workDate[i].getWorkMins());
-            }
-            out.close();
+        {       
+                PrintStream printStr = new PrintStream(file);
+                System.setOut(printStr);
+                for(int i = 0; i<7; i++)
+                {
+                    
+                    System.out.printf("%d %d %d %d\n", workDate[i].getDate().getYear(), workDate[i].getDate().getMonthValue(), workDate[i].getDate().getDayOfMonth(), workDate[i].getWorkMins());
+                }
+            
         }catch(Exception e)
         {
-            e.printStackTrace();
+            e.printStackTrace();   
+ 
         }
     }
     
