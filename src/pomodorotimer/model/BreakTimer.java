@@ -6,19 +6,21 @@ import java.util.TimerTask;
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.PomodoroTimer;
 
-/*
-Klasa BreakTimer dziedziczy po abstrakcyjnej klasie Supertimer. Działa tak samo jak Worktimer,
-jednak jej czas nie jest zapisywany przez StaticHolder.
 
-*/
-
+/**
+ * 
+ * Works same as WorkTimer, just doesn't gather statistics
+ * @author Bartlomiej Kirejczyk
+ */
 public class BreakTimer extends SuperTimer
 {
     public BreakTimer(){}
     
-    //konstruktor breaktimera, w atrybutach wprowadzamy czas docelowy. konstruktor wywoluje statyczna metod Pomodorotimer.getTabPaneController
-    //by pobrac referencje do kontrolera i aktualizowac stan progress indicatora/
-    //konstruktor uruchamia od razu timer
+ /**
+     * Work Timer. receives reference to TabPaneController to actualize progress indicators
+     * 
+     * @param time gets time goal
+     */
     public BreakTimer(int time)
     {
         tabPaneController = PomodoroTimer.getTabPaneController();
@@ -43,15 +45,15 @@ public class BreakTimer extends SuperTimer
                     timer.cancel();
                     tabPaneController.resetButtons();
                     
-                    //miejsce na wysłanie statystyk do obiektu trzymającego statystyki
+   
                 }
             }
         };
         
         timer.scheduleAtFixedRate(timerTask, 1000, 1000);
     }
-    
-    //metoda zatrzymuje timer i powoduje resetowanie przycisków Start Work i Start Break
+
+    //method stops timer and resets buttons
     @Override
     public void cancel()
     {
@@ -62,8 +64,7 @@ public class BreakTimer extends SuperTimer
         //tabPaneController.resetProgressIndocators();
     }
     
-    //pauza - zmienia isPasued na odwrotna wartosc boolean
-    //powoduje wywolanie metody TabPaneController zmieniajacego wyglad przycisków pauzy
+    //reverses boolean isPaused, changes button text
     @Override
     public void pause()
     {

@@ -26,11 +26,16 @@ import javafx.scene.layout.AnchorPane;
 import pomodorotimer.model.*;
 import pomodorotimer.PomodoroTimer;
 
-//kontroler TabPane
+
+/**
+ * 
+ * @author Bartlomiej Kirejczyk
+ */
 public class TabPaneController implements Initializable {
 
 
-    //wszystkie elementry
+   
+    
     TabPaneController tabPaneController;
     StatisticHolder statistics;
     @FXML
@@ -76,7 +81,12 @@ public class TabPaneController implements Initializable {
     
     //obiekty wykresu
    
-    //metoda initialize ustawia tekst labeli i ustawia progres 0.0 w celach testowych
+
+    /**
+     * Sets labels text and progress bars to 0.0
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -103,15 +113,11 @@ public class TabPaneController implements Initializable {
         
         
     }    
-    
-    /*
-    Tworzy nowy obiekt typu SuperTimer. W atrybucie przekazuje czas ze slidera po jakim timer ma się wyłączyć.
-    Zmienia także funcje i tekst przycisków. Przycisk użyty staje się przyciskiem cancel, który kończy działanie timera.
-    Przycisk drugiego timera staje się przyciskiem pauzy. Używa on metody, która nie zatrzymuje timera, ale sprawia,
-    że upływające sekundy obiektu timer nie są inkrementowane (pomimo, że timer dalej działa i wszystkie jest taski są wykonywane).
-    Przycisk pauzy zmienia się z pause na paused w momencie właczenia pauzy. Jest to regulowane odpowiednimi metodami z TabPaneController.
-    */
 
+    /**
+     * Creates object WorkTimer. Passes time goal from slider. Changes Labels text to cancel and pause. 
+     * Pause doesn't stop timer, it stops incrementing time. When "pause" is clicked it changes label text to "pasued"
+     */
     @FXML
     public void onActionStartWork()
     {
@@ -144,7 +150,10 @@ public class TabPaneController implements Initializable {
         });
     }
     
-    //aktualizuje tekst na labelu work przy wykonywaniu akcji sliderem
+
+    /**
+     * actualizes text on workLabel when using slider
+     */
     @FXML
     public void actualizeLabelWork()
     {
@@ -153,6 +162,9 @@ public class TabPaneController implements Initializable {
     
     
     //resetuje buttonStartWork, nadaje mu pierwotny tekst i pierwotny on ActionEvent
+    /**
+     * resets buttonStart work to previous text and ActionEvent
+     */
     @FXML
     public void resetbuttonStartWork()
     {
@@ -170,7 +182,7 @@ public class TabPaneController implements Initializable {
        });
        
        
-    //zmiana na pierwotną funkcję przycisku   
+    //changes button ActionEvent to basic one 
         buttonStartWork.setOnAction(new EventHandler<ActionEvent> () {
                     
                     @Override
@@ -182,13 +194,13 @@ public class TabPaneController implements Initializable {
     }
     
     
-    /*
-    Tworzy nowy obiekt typu SuperTimer. W atrybucie przekazuje czas ze slidera po jakim timer ma się wyłączyć.
-    Zmienia także funcje i tekst przycisków. Przycisk użyty staje się przyciskiem cancel, który kończy działanie timera.
-    Przycisk drugiego timera staje się przyciskiem pauzy. Używa on metody, która nie zatrzymuje timera, ale sprawia,
-    że upływające sekundy obiektu timer nie są inkrementowane (pomimo, że timer dalej działa i wszystkie jest taski są wykonywane).
-    Przycisk pauzy zmienia się z pause na paused w momencie właczenia pauzy. Jest to regulowane odpowiednimi metodami z TabPaneController.
-    */
+
+    
+     /**
+     * Creates object BreakTimer. Passes time goal from slider. Changes Labels text to cancel and pause. 
+     * Pause doesn't stop timer, it stops incrementing time. When "pause" is clicked it changes label text to "pasued".
+     * Stats from this one aren;t saved
+     */
     @FXML
     public void onActionStartBreak()
     {
@@ -219,7 +231,10 @@ public class TabPaneController implements Initializable {
     }
     
     
-    //aktualizuje tekst na labelu break przy wykonywaniu akcji sliderem
+
+    /**
+     * actualizes text on labale when using slider
+     */
     @FXML
     public void actualizeLabelBreak()
     {
@@ -230,9 +245,8 @@ public class TabPaneController implements Initializable {
     @FXML
     public void resetButtonStartBreak()
     {
-        //nie rozumiem do końca tego rozwiazania, nie przerabiałem jeszcze wielowątkowości
-        //bład był spowodowany tym, że tylko wątek JavyFX moze edytować tekst przycisków
-        //zmiana tekstu przez wątek timera bez Platform.runLater wywoływała błąd
+
+        //solves problem that JavaFX had with multithreading
         Platform.runLater(new Runnable()
         {   
             @Override
@@ -243,7 +257,7 @@ public class TabPaneController implements Initializable {
             }
         });
         
-        //zmienia na pierwotną funkcję przycisku
+       //sets previous Action Event on button
         buttonStartBreak.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -254,7 +268,7 @@ public class TabPaneController implements Initializable {
         });
 
     }
-    //aktualizuje Progress indicator Work
+    //actualizes Progress Indicator work
     @FXML
     public void actualizeWorkProgressIndicator(double progress)
     {
@@ -262,7 +276,7 @@ public class TabPaneController implements Initializable {
     }
     
     
-    //aktualizuje progress indicator Break
+    //acualizes Prograss Indicator break
     @FXML
     public void actualizeBreakProgressIndicator(double progress)
     {
@@ -270,15 +284,15 @@ public class TabPaneController implements Initializable {
     }
     
     
-    //zeruje wskazania obu ProgressIndicatorów
+    //sets both progress indicators to 0.0
     @FXML
     public void resetProgressIndocators()
     {
-        this.progressIndicatorBreak.setProgress(0);
-        this.progressIndicatorWork.setProgress(0);
+        this.progressIndicatorBreak.setProgress(0.0);
+        this.progressIndicatorWork.setProgress(0.0);
     }
     
-    //wywołuje metody resetujące obu przycisków na raz(zrobione dla wygody)
+    //resets both buttons
     @FXML
     public void resetButtons()
     {
@@ -286,8 +300,9 @@ public class TabPaneController implements Initializable {
         this.resetbuttonStartWork();
     }
     
-    //zmienia ktest wyświetlany przez buttonStartBreak na "pause" lub "paused" zaleznie od stanu timera
-    //atrybut przekazuje stan timera (czy jest spauzowany czy nie)
+
+    
+    //changes text of labels according to status of timer
     @FXML
     public void switchPauseBreakButton(boolean isPaused)
     {
@@ -300,8 +315,8 @@ public class TabPaneController implements Initializable {
         }
     }
     
-    //zmienia ktest wyświetlany przez buttonStartWork na "pause" lub "paused" zaleznie od stanu timera
-    //atrybut przekazuje stan timera (czy jest spauzowany czy nie)
+    
+    //changes text of labels according to status of timer
     @FXML
     public void switchPauseWorkButton(boolean isPaused)
     {
@@ -314,6 +329,8 @@ public class TabPaneController implements Initializable {
         }
     }
     
+    
+    //refreshes chart
     @FXML
     public void refreshChart()
     {

@@ -6,22 +6,19 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import pomodorotimer.PomodoroTimer;
 
+/**
+ * class plays mp3 file loaded from file
+ *  
+ * @author Bartlomiej Kirejczyk
+ */
 public class WorkPlayer extends RingtonePlayer
 {
 
-    private final Media media;
-    private final MediaPlayer player;
+    private final Media media = new Media(this.getClass().getResource("ringMaths.mp3").toString());
+    private final MediaPlayer player = new MediaPlayer(media);
         
-    public WorkPlayer()
-    {
-    //    file = new File(this.getClass().getResourceAsStream("ringMaths.mp3").toString());
-//      media = new Media(file.toURI().toString());
- //       InputStream inputStr = this.getClass().getResourceAsStream("ringMaths.mp3");
-        //media = new Media(PomodoroTimer.class.getClass().getResource("model/ringMaths.mp3").toString());
-//        System.out.println("inputStr: " + inputStr.toString());
-        media = new Media(this.getClass().getResource("ringMaths.mp3").toString());
-        player = new MediaPlayer(media);
-    }
+    public WorkPlayer(){}
+
     
     @Override
     public void play()

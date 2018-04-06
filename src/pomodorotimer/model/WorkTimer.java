@@ -15,9 +15,12 @@ Klasa WorkTimer dziedziczy po abstakcyjnej klasie SuperTimer. Jej wyniki są zbi
 public class WorkTimer extends SuperTimer
 {
     public WorkTimer(){}
-    //konstruktor worktimera, w atrybutach wprowadzamy czas docelowy. konstruktor wywoluje statyczna metod Pomodorotimer.getTabPaneController
-    //by pobrac referencje do kontrolera i aktualizowac stan progress indicatora/
-    //konstruktor uruchamia od razu timer
+  
+    /**
+     * Work Timer. receives reference to TabPaneController to actualize progress indicators
+     * 
+     * @param time gets time goal
+     */
     public WorkTimer(int time)
     {   
         tabPaneController = PomodoroTimer.getTabPaneController();
@@ -50,7 +53,7 @@ public class WorkTimer extends SuperTimer
         timer.scheduleAtFixedRate(timerTask, 1000, 1000);
     }
     
-    //metoda zatrzymuje timer i powoduje resetowanie przycisków Start Work i Start Break
+    //method stops timer and resets buttons
     @Override
     public void cancel()
     {
@@ -64,8 +67,9 @@ public class WorkTimer extends SuperTimer
         
     }
     
-    //pauza - zmienia isPasued na odwrotna wartosc boolean
-    //powoduje wywolanie metody TabPaneController zmieniajacego wyglad przycisków pauzy
+  
+
+    //reverses boolean isPaused, changes button text
     @Override
     public void pause()
     {

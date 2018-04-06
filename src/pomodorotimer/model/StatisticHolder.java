@@ -17,23 +17,25 @@ import java.util.Scanner;
 
 
 
-/*
-Obiekt StaticHolder zbiera statystyki z WorkTimera. Nie bierze on statystyk BreakTimera. Przechowuje on tablicę klasy WorkDate,
-którą wczytuje z pliku WorkDates.txt przy kosntruowaniu programu. Program nadpisuje także ten plik za pomocą odpowiedniej metody. 
-*/
 
+/**
+ * Gathers statistics from WorkTimer. Uses  WorkDate class
+ * Loads text file "WorkDates.txt" and overwrites this file when adding next WorkDates
+ * 
+ * @author Bartlomiej Kirejczyk
+ */
 public class StatisticHolder
 {
     InputStream inputStr;
     private WorkDate[] workDate = new WorkDate[8];
     private File file = new File("WorkDates.txt");
     URI uri;
-    
-    /*
-    Pętla w konstruktorze wczytuje tablicę siedmiu WorkDatów z pliku. Potem sprawdza, czy w którymś momencie występuje data sprzed tygodnia od dzisiejszego dnia.
-    Jeśli tak, to oznacza to miejsce zmienną dayMark. Jeśli nie taka data nie wystąpiłą, wtedy diff pozostaje równy 7 i cała lista zepełnia się nowymi datami'
-    od dzisiaj do tygodnia wstecz. Jeżeli dayMark jest mniejszy od 7, wtedy przepisuje dane od pozycji 6 do dayMark, natomiast tworzy nowe dni od dzisiaj do dayMark.
-    */
+ 
+    /**
+     * loads array of seven last WorkDates from "WorkDates.txt". Checks which of the loaded day is the one week ago and marks it. 
+     * If it hasn't found the day, it means last WorkDate is from more than week ago and it creates new seven WorkDates. 
+     * Otherwise it creates new WorkDates from today to marked day and load the rest
+     */
     public StatisticHolder()
     {
  
@@ -101,11 +103,12 @@ public class StatisticHolder
         writeFile();
     }
     
-    /*
-    Metoda zapisuje obecne dane przetrzymywane przez obiekt StaticHolder w pliku. Format danych to "rok miesiąc dzień czasPracy\n" jednak
-    format .txt nie radzi sobie z \n z niewiadomych przyczyn. Nadpisiwany jest stary plik otwierany przy stworzeniu klasy.
-    Program zbiera dane do tygodnia wstecz.
-    */
+    
+    /**
+     * Method saves currently holded WorkDates in text file.
+     * Format of data is "year month day time".
+     * When StatisticHolder is contructed it overwrites previous "WorkDates.txt"
+     */
     public void writeFile()
     {
         //PrintStream out = new PrintStream(this.getClass().getResourceAsStream("WorkDates.txt").toString())

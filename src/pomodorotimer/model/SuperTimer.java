@@ -1,5 +1,4 @@
 package pomodorotimer.model;
-//zmienić fixer rate!!
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -7,7 +6,11 @@ import java.util.TimerTask;
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.PomodoroTimer;
 
-//szablon timerów
+/**
+ * super class for timers
+ * 
+ * @author Bartlomiej Kirejczyk
+ */
 public abstract class SuperTimer{
 
     protected Timer timer;

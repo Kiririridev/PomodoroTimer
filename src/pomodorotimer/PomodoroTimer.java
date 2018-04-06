@@ -7,21 +7,30 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import pomodorotimer.view.TabPaneController;
 import pomodorotimer.model.StatisticHolder;
 
-//głowna klasa rozpoczynająca program
+/**
+ * @author Bartlomiej Kirejczyk
+ * 
+ * Main Class
+ */
 public class PomodoroTimer extends Application {
     
 
-    private TabPane tabPane;    //głowna scena z czterema kartami
-    static TabPaneController tabPaneController;    //obiekt kontrolera
-    static StatisticHolder statisticHolder; //obiekt zbieracza statystyk
+    private TabPane tabPane;    //main Pane, with three tabs
+    static TabPaneController tabPaneController;    //tabPaneController
+    static StatisticHolder statisticHolder; //statistic holder
 
     
-    //klasyczna metoda javafx, w której tworzymy okno, wywołujemy w niej metodę inicjującą TabPane
+ 
+    /**
+     * Classic JavaFX method, creates Stage, calls initTabPane()
+     * @param primaryStage 
+     */
     @Override
     public void start(Stage primaryStage) {
         
@@ -34,6 +43,11 @@ public class PomodoroTimer extends Application {
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(false);
         primaryStage.setResizable(false);
+        
+        Image icon = new Image(this.getClass().getResourceAsStream("view/uzi.jpg"));
+        primaryStage.getIcons().add(icon);
+        primaryStage.setIconified(true);
+        
 
         primaryStage.show();
         
@@ -47,7 +61,10 @@ public class PomodoroTimer extends Application {
     }
     
     
-    //metoda inicjująca tab pane. ładuje plik fxml, dostaje kontroller
+
+    /**
+     * Initializes Tab Pane. Loads FXML and receives controller
+     */
     public void initTabPane()
     {
         try
@@ -64,12 +81,20 @@ public class PomodoroTimer extends Application {
         }
     } 
     
-    //referencja do obiektu tabPaneController - uzywana przez timery do obslugi progressindicatorów
+
+    /**
+     * @return TabPaneController
+     * used by Timers for ProgressIndicators
+     */
     public static TabPaneController getTabPaneController()
-   {
+    {
        return tabPaneController;
-   }
+    }
     
+    /**
+     * 
+     * @return StatisticHolder 
+     */
     public static StatisticHolder getStatisticHolder()
     {
         return statisticHolder;
