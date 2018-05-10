@@ -80,7 +80,7 @@ public class StatisticHolder
         }
         catch(Exception e)
         {   
-            System.out.println("wyjebalo exception");
+            System.out.println("exception");
             System.out.println(e.getMessage() + e.getLocalizedMessage());
             
             for(int i = 0; i<7; i++)
